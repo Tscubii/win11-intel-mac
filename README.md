@@ -12,7 +12,7 @@ A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 
 * [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) (the x64 `.iso` file)
 * [Windows support software](https://support.apple.com/en-us/102465#:~:text=Download%20the%20Windows,Boot%20Camp%20Assistant.) (how-to instructions)
     * Save it to your internal disk
-* [Assets.zip](https://github.com/Tscubii/win11-intel-mac/blob/main/Assets.zip) (direct download)
+* [Assets.zip](https://github.com/Tscubii/win11-intel-mac/raw/refs/heads/main/Assets.zip) (direct download)
 * [bootx64.efi](https://github.com/pbatard/uefi-ntfs/releases/latest/download/bootx64.efi) (direct download)
 * [exfat_x64.efi](https://github.com/pbatard/EfiFs/releases/latest/download/exfat_x64.efi) (direct download)
 
