@@ -1,4 +1,4 @@
-# How to Install Windows 11 on an Intel Mac
+# How to Install Windows 11 on an Intel Mac (WIP)
 
 A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 shenanigans.
 
