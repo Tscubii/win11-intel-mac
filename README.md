@@ -32,7 +32,7 @@ First we identify, format, and copy files to the USB.
 6. Close `Format-USB.command`
 7. Mount the ISO and copy everything from it to the Win11 volume
 8. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
-9. Enter the `Assets` folder and copy `Bypass-Requirements.reg` to the Win11 volume
+9. Enter the `Assets` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if already exists)
 10. In the UEFI_NTFS volume, create the folder structure and copy the two `.efi` files as shown below:
 
 ```
@@ -48,9 +48,5 @@ EFI/
 Then we boot from the USB and install Windows 11.
 
 1. Reboot the Mac, hold Option, and select UEFI_NTFS
-2. Press Shift+F10, run `reg import C:\Bypass-Requirements.reg`, close Command Prompt, and continue with the installation
-
-### Troubleshooting
-
-#### WIP
-
+2. Proceed with the installation
+    * Select the BOOTCAMP partition and click Format
