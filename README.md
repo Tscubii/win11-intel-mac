@@ -12,11 +12,11 @@ A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 
 * [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) (the x64 `.iso` file)
 * [Windows support software](https://support.apple.com/en-us/102465#:~:text=Download%20the%20Windows,Boot%20Camp%20Assistant.) (how-to instructions)
     * Save it to your internal disk
-* The latest release of [Assets](https://github.com/Tscubii/win11-intel-mac/releases/latest) (the Assets `.zip` file)
+* [win11-intel-mac-main.zip](https://github.com/Tscubii/win11-intel-mac/archive/refs/heads/main.zip) (direct download)
 * [bootx64.efi](https://github.com/pbatard/uefi-ntfs/releases/latest/download/bootx64.efi) (direct download)
 * [exfat_x64.efi](https://github.com/pbatard/EfiFs/releases/latest/download/exfat_x64.efi) (direct download)
 
-Put the files in an easily accessible folder (e.g., one on the desktop called `Main`).
+Put the files in an easily accessible folder (e.g., one on the desktop called `Temp`).
 
 ## Instructions
 
@@ -24,7 +24,7 @@ Put the files in an easily accessible folder (e.g., one on the desktop called `M
 
 First we identify, format, and copy files to the USB.
 
-1. Extract the Assets `.zip` and enter the new folder
+1. Extract the win11-intel-mac-main `.zip` and enter the new folder
 2. Open `Watch-USB.command` and prepare to watch for changes
 3. Insert the USB and take note of the newest disk's identifier (e.g., disk2)
 4. Press Ctrl+C and close `Watch-USB.command`
@@ -32,7 +32,7 @@ First we identify, format, and copy files to the USB.
 6. Close `Format-USB.command`
 7. Mount the ISO and copy everything from it to the Win11 volume
 8. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
-9. Enter the `Assets` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if already exists)
+9. Enter the `win11-intel-mac-main` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if already exists)
 10. In the UEFI_NTFS volume, create the folder structure and copy the two `.efi` files as shown below:
 
 ```
