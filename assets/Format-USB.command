@@ -4,7 +4,7 @@ while true; do
     read -rp "Enter the disk you took note of in Watch-USB.command: " DISK
     
     # Check if the disk exists and is not a partition.
-    if [[ "$(diskutil info "$DISK" 2>/dev/null | awk '/Whole:/ {print $2}')" == "Yes" ]]; then
+    if [[ "$(diskutil info "$DISK" 2>/dev/null | awk '/Whole:/ && !/Part/ {print $NF}')" == "Yes" ]]; then
         diskutil info "$DISK"
         read -rp "Info about $DISK is displayed above. Format $DISK? [y/N] " ANSWER
         
@@ -18,4 +18,5 @@ while true; do
     else
         echo "$DISK is not a disk. Retrying..."
     fi
+
 done
