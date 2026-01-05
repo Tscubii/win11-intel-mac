@@ -11,7 +11,7 @@ This was tested on a MacBook Pro (16-inch, 2019) running macOS Sequoia 15.7.3.
     * Name: BOOTCAMP
     * Format: ExFAT
     * Size: 64 GB+
-        * Set first to prevent lockout
+        * Set this first to prevent a lockout
 * [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) (the x64 `.iso` file)
 * [Windows support software](https://support.apple.com/en-us/102465#:~:text=Download%20the%20Windows,Boot%20Camp%20Assistant.) (how-to instructions)
     * Save it to the `Downloads` folder
@@ -19,10 +19,12 @@ This was tested on a MacBook Pro (16-inch, 2019) running macOS Sequoia 15.7.3.
 * [bootx64.efi](https://github.com/pbatard/uefi-ntfs/releases/latest/download/bootx64.efi) (direct download)
 * [exfat_x64.efi](https://github.com/pbatard/EfiFs/releases/latest/download/exfat_x64.efi) (direct download)
 
+Put the files in an easily accessible folder (e.g., one on the desktop called `Temp`).
+
 ## What You Need - T2
 
 * [Secure Boot set to No Security and Allowed Boot Media set to Allow booting from external or removable media](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
-    * Full Security prompts for an Internet check which always fails.
+    * Full Security prompts for an Internet check, which will always fail.
     * Medium Security prompts for a macOS reinstall.
 
 Revert these once you reach the Windows 11 desktop.
@@ -31,8 +33,6 @@ Revert these once you reach the Windows 11 desktop.
 
 * External keyboard and mouse
     * Windows 11 Setup doesn't like it when $WinPEDriver$ has drivers in them
-
-Put the files in an easily accessible folder (e.g., one on the desktop called `Temp`).
 
 ## Instructions
 
