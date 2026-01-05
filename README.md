@@ -23,15 +23,15 @@ Put the files in an easily accessible folder (e.g., one on the desktop called `T
 
 ### What You Need - T2
 
-* [Secure Boot set to No Security and Allowed Boot Media set to Allow booting from external or removable media](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
-    * Full Security prompts for an internet check, which will always fail
-    * Medium Security prompts for a macOS reinstall
+* [Secure Boot set to "No Security" and Allowed Boot Media set to "Allow booting from external or removable media"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
+    * Full Security prompts for an integrity check, which will always fail
+    * Medium Security prompts for a macOS reinstall, which is unnecessary
 
 Revert these once you reach the Windows 11 desktop.
 
 ### What You Need - MacBook
 
-* External keyboard and mouse
+* External keyboard
 
 ## Instructions
 
@@ -65,7 +65,9 @@ Then we boot from the USB and install Windows 11.
 
 1. Reboot the Mac, hold Option, and select EFI Boot (if there's two, select the rightmost one)
 
-Windows 11 Setup doesn't like the drivers in the $WinPEDriver$ folder. Add them by force.
+If you're on a Mac, now's the time to use the external keyboard and mouse.
+
+Windows 11 Setup rejects the drivers in the `$WinPEDriver$` folder because it thinks it already has the best ones. Add them to WinPE BEFORE it scans that folder.
 
 2. Press Shift+F10 and run the commands as shown below:
 
