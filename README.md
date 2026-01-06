@@ -65,7 +65,7 @@ Then we boot from the USB and install Windows 11.
 
 1. Reboot the Mac, hold Option, and select EFI Boot (if there's two, select the rightmost one)
 
-If you're on a Mac, now's the time to use the external keyboard and mouse.
+If you're on a MacBook, now's the time to plug in the external keyboard.
 
 Windows 11 Setup rejects the drivers in the `$WinPEDriver$` folder because it thinks it already has the best ones. Add them to WinPE BEFORE it scans that folder.
 
