@@ -10,7 +10,7 @@ while true; do
         
         case "$ANSWER" in
             [Yy]*)
-                diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1M
+                diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi
                 break;;
             *)
                 echo "Aborted. Retrying...";;
