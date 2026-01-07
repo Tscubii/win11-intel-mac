@@ -18,7 +18,6 @@ if defined DISK_LETTER (
     if !errorlevel! equ 0 (
         if defined USB_LETTER (
             md %DISK_LETTER%:\Temp
-            if not exist %USB_LETTER%:\sources\boot.wim.bak ( copy %USB_LETTER%:\sources\boot.wim %USB_LETTER%:\sources\boot.wim.bak )
             dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\boot.wim /Index:2 /MountDir:%DISK_LETTER%:\Temp
             
             if !errorlevel! equ 0 (
