@@ -37,16 +37,13 @@ Revert these once you reach the Windows 11 desktop.
 First we identify, format, and copy files to the USB.
 
 1. Enter the `win11-intel-mac-main` folder, right-click the `assets` folder, and click "New Terminal at Folder"
-2. Run `chmod u+x *.command` to make the scripts executable
-3. Run `./Watch-USB.command` and prepare to watch for changes
-4. Insert the USB and take note of the disk's identifier
-5. Press Ctrl+C to stop the script
-6. Run `./Format-USB.command` and follow the prompts
-7. Close Terminal
-8. Mount the ISO and copy everything from it to the Win11 volume
-9. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
-10. Enter the `assets` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if asked)
-11. In the UEFI_NTFS volume, create the folder structure and copy the two `.efi` files as shown below:
+2. Run `chmod u+x Format-USB.command` to make the script executable
+3. Run `./Format-USB.command` and follow the prompts
+4. Close Terminal
+5. Mount the ISO and copy everything from it to the Win11 volume
+6. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
+7. Enter the `assets` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if asked)
+8. In the UEFI_NTFS volume, create the folder structure and copy the `.efi` files as shown below:
 
 ```
 EFI/
@@ -60,5 +57,6 @@ EFI/
 
 Then we boot from the USB and install Windows 11.
 
-1. Restart the Mac, hold Option, and select EFI Boot (if there's two, select the rightmost one)
+1. Restart the Mac, hold Option, and select EFI Boot
+    * If there's two, select the rightmost one
 2. Proceed with the installation
