@@ -30,10 +30,6 @@ Put the files in an easily accessible folder (e.g., one on the desktop called `T
 
 Revert these once you reach the Windows 11 desktop.
 
-### What You Need - MacBook
-
-* External keyboard
-
 ## Instructions
 
 ### Section I - Prep Work
@@ -43,7 +39,7 @@ First we identify, format, and copy files to the USB.
 1. Enter the `win11-intel-mac-main` folder, right-click the `assets` folder, and click "New Terminal at Folder"
 2. Run `chmod u+x *.command` to make the scripts executable
 3. Run `./Watch-USB.command` and prepare to watch for changes
-4. Insert the USB and take note of the disk's identifier (e.g., disk2)
+4. Insert the USB and take note of the disk's identifier
 5. Press Ctrl+C to stop the script
 6. Run `./Format-USB.command` and follow the prompts
 7. Close Terminal
@@ -64,20 +60,5 @@ EFI/
 
 Then we boot from the USB and install Windows 11.
 
-1. Reboot the Mac, hold Option, and select EFI Boot (if there's two, select the rightmost one)
-
-Windows 11 Setup rejects the drivers in the `$WinPEDriver$` folder because it thinks it already has the best ones. Add them to WinPE BEFORE it scans that folder.
-
-If you're on a MacBook, you can't use the built-in keyboard or touchpad at this time. Plug in the external keyboard and unplug it after running the last command.
-
-2. Press Shift+F10 and run the commands as shown below:
-
-```
-dism /Mount-Image /ImageFile:D:\sources\boot.wim /MountDir:D:\mount
-dism /Image:D:\mount /Add-Driver /Driver:D:\$WinPEDriver$ /Recurse
-dism /Unmount-Image /MountDir:D:\mount /Commit
-wpeutil reboot
-```
-
-3. Proceed with the installation
-    * Select the BOOTCAMP partition and click "Format Partition" -> "Refresh"
+1. Restart the Mac, hold Option, and select EFI Boot (if there's two, select the rightmost one)
+2. Proceed with the installation
