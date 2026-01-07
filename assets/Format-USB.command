@@ -1,7 +1,25 @@
 #!/bin/sh
 
+LAST_OUTPUT=""
+
 while true; do
-    read -rp "Enter the disk you took note of in Watch-USB.command (e.g., disk2): " DISK
+    CURRENT_OUTPUT=$(diskutil list external physical)
+    
+    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]]; then
+        clear
+        echo "$CURRENT_OUTPUT"
+        LAST_OUTPUT="$CURRENT_OUTPUT"
+    fi
+    
+    echo "Listening for USB drives... Press any key to quit."
+    
+    if [[ read -t 0.5 -n 1 -s ]]; then
+        break
+    fi
+done
+
+while true; do
+    read -rp "Enter the disk's identifier (e.g., disk2): " DISK
     
     # Check if the disk exists and is not a partition.
     if [[ "$(diskutil info "$DISK" 2>/dev/null | awk '/Whole:/ && !/Part/ {print $NF}')" == "Yes" ]]; then
