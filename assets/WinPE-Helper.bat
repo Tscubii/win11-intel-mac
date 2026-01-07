@@ -4,9 +4,8 @@ setlocal enabledelayedexpansion
 set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
-echo If the WinPE drivers haven't been installed, wait 20 seconds. Otherwise, press any key to skip.
-timeout /t 20 >nul
-if ERRORLEVEL 1 ( goto END )
+choice /c YN /t 20 /d N /m "If the WinPE drivers haven't been installed, wait 20 seconds. Otherwise, press Y to skip."
+if !errorlevel! equ 1 ( goto END )
 
 for %%a in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
     vol %%a: 2>nul | find /i "%DISK_LABEL%" >nul
@@ -22,7 +21,7 @@ if defined DISK_LETTER (
     if !errorlevel! equ 0 (
         if defined USB_LETTER (
             md %DISK_LETTER%:\mnt
-            echo n | xcopy /-y %USB_LETTER%:\sources\boot.wim %USB_LETTER%:\sources\boot.wim.bak
+            if not exists %USB_LETTER%:\sources\boot.wim.bak ( copy %USB_LETTER%:\sources\boot.wim %USB_LETTER%:\sources\boot.wim.bak )
             dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\boot.wim /Index:2 /MountDir:%DISK_LETTER%:\mnt
             
             if !errorlevel! equ 0 (
