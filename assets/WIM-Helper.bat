@@ -23,9 +23,11 @@ if defined DISK_LETTER (
             if !errorlevel! equ 0 (
                 dism /Image:%DISK_LETTER%:\mount /Add-Driver /Driver:%USB_LETTER%:\Drivers /Recurse
                 dism /Unmount-Image /MountDir:%DISK_LETTER%:\mount /Commit
+                
+                echo Restarting in 10 seconds... (Press any key to restart now.)
+                timeout /t 10 >nul
+                wpeutil reboot
             )
         )
     )
 )
-
-pause
