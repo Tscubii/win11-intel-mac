@@ -24,6 +24,7 @@ if defined DISK_LETTER (
             if !errorlevel! equ 0 (
                 dism /Image:%DISK_LETTER%:\mnt /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
                 dism /Unmount-Image /MountDir:%DISK_LETTER%:\mnt /Commit
+                del %USB_LETTER%:\WinPE-Helper.bat
                 wpeutil reboot
             )
         )
