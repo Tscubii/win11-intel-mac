@@ -4,10 +4,6 @@ setlocal enabledelayedexpansion
 set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
-echo If the WinPE drivers haven't been installed, wait 20 seconds. Otherwise, press any key to skip.
-timeout /t 20 | findstr /c:" 0" >nul
-if !errorlevel! equ 1 ( goto END )
-
 for %%a in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
     vol %%a: 2>nul | find /i "%DISK_LABEL%" >nul
     if !errorlevel! equ 0 set "DISK_LETTER=%%a"
@@ -28,13 +24,8 @@ if defined DISK_LETTER (
             if !errorlevel! equ 0 (
                 dism /Image:%DISK_LETTER%:\mnt /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
                 dism /Unmount-Image /MountDir:%DISK_LETTER%:\mnt /Commit
-                
-                echo Restarting in 10 seconds... (Press any key to restart now.)
-                timeout /t 10 >nul
                 wpeutil reboot
             )
         )
     )
 )
-
-:END
