@@ -1,7 +1,7 @@
 #!/bin/sh
 
 while true; do
-    read -rp "Enter the disk you took note of in Watch-USB.command: " DISK
+    read -rp "Enter the disk you took note of in Watch-USB.command (e.g., disk2): " DISK
     
     # Check if the disk exists and is not a partition.
     if [[ "$(diskutil info "$DISK" 2>/dev/null | awk '/Whole:/ && !/Part/ {print $NF}')" == "Yes" ]]; then
