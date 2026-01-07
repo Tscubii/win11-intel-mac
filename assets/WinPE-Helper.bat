@@ -4,12 +4,12 @@ setlocal enabledelayedexpansion
 set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
-for %%a in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
-    vol %%a: 2>nul | find /i "%DISK_LABEL%" >nul
-    if !errorlevel! equ 0 set "DISK_LETTER=%%a"
+for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+    vol %%i: 2>nul | find /i "%DISK_LABEL%" >nul
+    if !errorlevel! equ 0 ( set "DISK_LETTER=%%i" )
     
-    vol %%a: 2>nul | find /i "%USB_LABEL%" >nul
-    if !errorlevel! equ 0 set "USB_LETTER=%%a"
+    vol %%i: 2>nul | find /i "%USB_LABEL%" >nul
+    if !errorlevel! equ 0 ( set "USB_LETTER=%%i" )
 )
 
 if defined DISK_LETTER (
@@ -17,14 +17,13 @@ if defined DISK_LETTER (
     
     if !errorlevel! equ 0 (
         if defined USB_LETTER (
-            md %DISK_LETTER%:\mnt
+            md %DISK_LETTER%:\Temp
             if not exist %USB_LETTER%:\sources\boot.wim.bak ( copy %USB_LETTER%:\sources\boot.wim %USB_LETTER%:\sources\boot.wim.bak )
-            dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\boot.wim /Index:2 /MountDir:%DISK_LETTER%:\mnt
+            dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\boot.wim /Index:2 /MountDir:%DISK_LETTER%:\Temp
             
             if !errorlevel! equ 0 (
-                dism /Image:%DISK_LETTER%:\mnt /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
-                dism /Unmount-Image /MountDir:%DISK_LETTER%:\mnt /Commit
-                del %USB_LETTER%:\WinPE-Helper.bat
+                dism /Image:%DISK_LETTER%:\Temp /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
+                dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
                 wpeutil reboot
             )
         )
