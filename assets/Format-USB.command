@@ -13,7 +13,7 @@ while true; do
     
     echo "Listening for USB drives... Press any key to quit."
     
-    if [[ read -t 0.5 -n 1 -s ]]; then
+    if [[ read -t 1 -n 1 -s ]]; then
         break
     fi
 done
