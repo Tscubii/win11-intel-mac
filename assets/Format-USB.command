@@ -18,5 +18,4 @@ while true; do
     else
         echo "$DISK is not a disk. Retrying..."
     fi
-
 done
