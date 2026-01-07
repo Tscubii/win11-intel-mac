@@ -4,7 +4,8 @@ setlocal enabledelayedexpansion
 set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
-choice /c YN /t 20 /d N /m "If the WinPE drivers haven't been installed, wait 20 seconds. Otherwise, press Y to skip."
+echo If the WinPE drivers haven't been installed, wait 20 seconds. Otherwise, press any key to skip.
+timeout /t 20 | findstr /c:" 0" >nul
 if !errorlevel! equ 1 ( goto END )
 
 for %%a in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
