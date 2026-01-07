@@ -4,12 +4,12 @@ setlocal enabledelayedexpansion
 set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
-for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
     vol %%i: 2>nul | find /i "%DISK_LABEL%" >nul
     if !errorlevel! equ 0 ( set "DISK_LETTER=%%i" )
     
     vol %%i: 2>nul | find /i "%USB_LABEL%" >nul
-    if !errorlevel! equ 0 ( set "USB_LETTER=%%i" )
+    if !errorlevel! equ 0 ( "set USB_LETTER=%%i" )
 )
 
 if defined DISK_LETTER (
