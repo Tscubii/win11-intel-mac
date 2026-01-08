@@ -60,5 +60,5 @@ Then we boot from the USB and install Windows 11.
 1. Restart the Mac, hold Option, and select EFI Boot
     * If there's two, select the rightmost one
 2. Proceed with the installation
-    * `WinPE-Helper.bat` will do some prep, self-delete, and restart Windows Setup.
-        * Windows Setup doesn't include keyboard and trackpad drivers for MacBooks, so this will patch them into it.
+    * `WinPE-Helper.bat` will do some prep, self-delete, and restart Windows Setup
+        * Windows Setup doesn't include keyboard and trackpad drivers for MacBooks, so this will patch them into it
