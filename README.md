@@ -42,7 +42,7 @@ First we identify, format, and copy files to the USB.
 4. Close Terminal
 5. Mount the ISO and copy everything from it to the Win11 volume
 6. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
-7. Enter the `assets` folder and copy `AutoUnattend.xml` to the Win11 volume (replace if asked)
+7. Enter the `assets` folder and copy `WinPE-Helper.bat` and `AutoUnattend.xml` to the Win11 volume (replace if asked)
 8. In the UEFI_NTFS volume, create the folder structure and copy the `.efi` files as shown below:
 
 ```
@@ -60,3 +60,5 @@ Then we boot from the USB and install Windows 11.
 1. Restart the Mac, hold Option, and select EFI Boot
     * If there's two, select the rightmost one
 2. Proceed with the installation
+    * `WinPE-Helper.bat` will do some prep, self-delete, and restart Windows Setup.
+        * Windows Setup doesn't include keyboard and trackpad drivers for MacBooks, so this will patch them into it.
