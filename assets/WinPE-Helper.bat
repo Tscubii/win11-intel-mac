@@ -46,6 +46,7 @@ if defined DISK_LETTER (
                         
                         echo Saving Windows 11 Pro...
                         dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
+                        rd %DISK_LETTER%:\Temp
                         
                         if !ERRORLEVEL! equ 0 (
                             echo Windows Setup will now restart.
