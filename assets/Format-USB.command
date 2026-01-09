@@ -11,7 +11,7 @@ while true; do
         LAST_OUTPUT="$CURRENT_OUTPUT"
     fi
     
-    echo "Looking for USB drives... Press any key to stop."
+    echo "Finding USB drives... Press any key to stop."
     if [[ read -t 1 -n 1 -s ]]; then
         break
     fi
