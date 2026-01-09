@@ -20,7 +20,7 @@ for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
 )
 
 if defined DISK_LETTER (
-    echo Formatting %DISK_LABEL% (%DISK_LETTER%:) to NTFS...
+    echo Formatting %DISK_LETTER%: to NTFS...
     format %DISK_LETTER%: /fs:ntfs /v:BOOTCAMP /q /y
     
     if !ERRORLEVEL! equ 0 (
@@ -48,12 +48,12 @@ if defined DISK_LETTER (
                         dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
                         
                         if !ERRORLEVEL! equ 0 (
-                            echo Windows Setup will now restart!
+                            echo Windows Setup will now restart.
                             wpeutil reboot
-                        ) else ( echo Couldn't save Windows 11 Pro! This really shouldn't have happened... )
-                    ) else ( echo Couldn't mount Windows 11 Pro! This really shouldn't have happened... )
-                ) else ( echo Couldn't save Windows Setup! This really shouldn't have happened... )
-            ) else ( echo Couldn't mount Windows Setup! This really shouldn't have happened... )
-        ) else ( echo Couldn't find the drive of %USB_LABEL%! Was the volume renamed? )
-    ) else ( echo Couldn't format %DISK_LABEL% (%DISK_LETTER%:) to NTFS! This really shouldn't have happened... )
-) else ( echo Couldn't find the drive of %DISK_LABEL%! Was the partition named correctly? )
+                        ) else ( echo Couldn't save Windows 11 Pro. This really shouldn't have happened... )
+                    ) else ( echo Couldn't mount Windows 11 Pro. This really shouldn't have happened... )
+                ) else ( echo Couldn't save Windows Setup. This really shouldn't have happened... )
+            ) else ( echo Couldn't mount Windows Setup. This really shouldn't have happened... )
+        ) else ( echo Couldn't find the drive of %USB_LABEL%. Was the volume renamed? )
+    ) else ( echo Couldn't format %DISK_LETTER%: to NTFS. This really shouldn't have happened... )
+) else ( echo Couldn't find the drive of %DISK_LABEL%. Was the partition named correctly? )
