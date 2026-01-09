@@ -9,7 +9,7 @@
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>2</Order>
-                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do ( if exist %i:\WinPE-Helper.bat ( move %i:\WinPE-Helper.bat X:\WinPE-Helper.bat && X:\WinPE-Helper.bat ) )</Path>
+                    <Path>cmd /k for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do ( if exist %i:\WinPE-Helper.bat ( move %i:\WinPE-Helper.bat X:\WinPE-Helper.bat && X:\WinPE-Helper.bat ) )</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>3</Order>
