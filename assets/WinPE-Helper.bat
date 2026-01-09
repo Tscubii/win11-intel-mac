@@ -50,8 +50,8 @@ if defined DISK_LETTER (
                         if !ERRORLEVEL! equ 0 (
                             echo Windows Setup will now restart!
                             wpeutil reboot
-                        ) else ( Couldn't save Windows 11 Pro! This really shouldn't have happened... )
-                    ) else ( Couldn't mount Windows 11 Pro! This really shouldn't have happened... )
+                        ) else ( echo Couldn't save Windows 11 Pro! This really shouldn't have happened... )
+                    ) else ( echo Couldn't mount Windows 11 Pro! This really shouldn't have happened... )
                 ) else ( echo Couldn't save Windows Setup! This really shouldn't have happened... )
             ) else ( echo Couldn't mount Windows Setup! This really shouldn't have happened... )
         ) else ( echo Couldn't find the drive of %USB_LABEL%! Was the volume renamed? )
