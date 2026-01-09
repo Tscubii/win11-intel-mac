@@ -35,11 +35,23 @@ if defined DISK_LETTER (
                 
                 echo Saving Windows Setup...
                 dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
-                rd %DISK_LETTER%:\Temp
                 
                 if !ERRORLEVEL! equ 0 (
-                    echo Windows Setup will now restart!
-                    wpeutil reboot
+                    echo Mounting Windows 11 Pro...
+                    dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\install.wim /Index:6 /MountDir:%DISK_LETTER%:\Temp
+                    
+                    if !ERRORLEVEL! equ 0 (
+                        echo Adding drivers to Windows 11 Pro...
+                        dism /Image:%DISK_LETTER%:\Temp /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
+                        
+                        echo Saving Windows 11 Pro...
+                        dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
+                        
+                        if !ERRORLEVEL! equ 0 (
+                            echo Windows Setup will now restart!
+                            wpeutil reboot
+                        ) else ( Couldn't save Windows 11 Pro! This really shouldn't have happened... )
+                    ) else ( Couldn't mount Windows 11 Pro! This really shouldn't have happened... )
                 ) else ( echo Couldn't save Windows Setup! This really shouldn't have happened... )
             ) else ( echo Couldn't mount Windows Setup! This really shouldn't have happened... )
         ) else ( echo Couldn't find the drive of %USB_LABEL%! Was the volume renamed? )
