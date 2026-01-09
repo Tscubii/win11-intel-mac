@@ -5,7 +5,6 @@ set "DISK_LABEL=BOOTCAMP"
 set "USB_LABEL=Win11"
 
 echo Finding the drives of %DISK_LABEL% and %USB_LABEL%...
-
 for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
     vol %%i: 2>nul | find /i "%DISK_LABEL%" >nul
     if !ERRORLEVEL! equ 0 (
