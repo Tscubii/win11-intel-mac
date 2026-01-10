@@ -16,8 +16,6 @@ This was tested on a MacBook Pro (16-inch, 2019) running macOS Sequoia 15.7.3.
 * [Windows support software](https://support.apple.com/en-us/102465#:~:text=Download%20the%20Windows,Boot%20Camp%20Assistant.) (how-to instructions)
     * Save it to the `Downloads` folder
 * [win11-intel-mac-main.zip](https://github.com/Tscubii/win11-intel-mac/archive/refs/heads/main.zip) (direct download)
-* [bootx64.efi](https://github.com/pbatard/uefi-ntfs/releases/latest/download/bootx64.efi) (direct download)
-* [exfat_x64.efi](https://github.com/pbatard/EfiFs/releases/latest/download/exfat_x64.efi) (direct download)
 
 Put the files in an easily accessible folder (e.g., one on the desktop called `Temp`).
 
@@ -43,22 +41,12 @@ First we identify, format, and copy files to the USB.
 5. Mount the ISO and copy everything from it to the Win11 volume
 6. Enter the `WindowsSupport` folder and copy everything from it to the Win11 volume
 7. Enter the `assets` folder and copy `WinPE-Helper.bat` and `AutoUnattend.xml` to the Win11 volume (replace if asked)
-8. In the UEFI_NTFS volume, create the folder structure and copy the `.efi` files as shown below:
-
-```
-EFI/
-|-- Boot/
-|   `-- bootx64.efi
-`-- Rufus/
-    `-- exfat_x64.efi
-```
 
 ### Section II - Installation
 
 Then we boot from the USB and install Windows 11.
 
 1. Restart the Mac, hold Option, and select EFI Boot
-    * If there's two, select the rightmost one
 2. Proceed with the installation
     * `WinPE-Helper.bat` will do some prep, self-delete, and restart Windows Setup
         * Windows Setup doesn't include keyboard and trackpad drivers for MacBooks, so this will patch them into it
