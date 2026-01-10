@@ -35,26 +35,13 @@ if defined DISK_LETTER (
                 
                 echo Saving Windows Setup...
                 dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
+                rd %DISK_LETTER%:\Temp
                 
                 if !ERRORLEVEL! equ 0 (
-                    echo Mounting Windows 11 Home...
-                    dism /Mount-Image /ImageFile:%USB_LETTER%:\sources\install.wim /Index:1 /MountDir:%DISK_LETTER%:\Temp
-                    
-                    if !ERRORLEVEL! equ 0 (
-                        echo Adding drivers to Windows 11 Home...
-                        dism /Image:%DISK_LETTER%:\Temp /Add-Driver /Driver:%USB_LETTER%:\WinPEDriver /Recurse
-                        
-                        echo Saving Windows 11 Home...
-                        dism /Unmount-Image /MountDir:%DISK_LETTER%:\Temp /Commit
-                        rd %DISK_LETTER%:\Temp
-                        
-                        if !ERRORLEVEL! equ 0 (
-                            echo Windows Setup will now restart.
-                            wpeutil reboot
-                        ) else ( echo Couldn't save Windows 11 Home. This really shouldn't have happened... )
-                    ) else ( echo Couldn't mount Windows 11 Home. This really shouldn't have happened... )
-                ) else ( echo Couldn't save Windows Setup. This really shouldn't have happened... )
-            ) else ( echo Couldn't mount Windows Setup. This really shouldn't have happened... )
-        ) else ( echo Couldn't find the drive of %USB_LABEL%. Was the volume renamed? )
+                    echo Windows Setup will now restart.
+                    wpeutil reboot
+                ) else ( Couldn't save Windows Setup. This really shouldn't have happened... )
+            ) else ( Couldn't mount Windows Setup. This really shouldn't have happened... )
+        ) else ( Couldn't find the drive of %USB_LABEL%. Was the volume renamed? )
     ) else ( echo Couldn't format %DISK_LETTER%: to NTFS. This really shouldn't have happened... )
 ) else ( echo Couldn't find the drive of %DISK_LABEL%. Was the partition named correctly? )
