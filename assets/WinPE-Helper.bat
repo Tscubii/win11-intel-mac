@@ -1,11 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "DISK_LABEL=BOOTCAMP"
-set "USB_LABEL=Win11"
-
 :: Home = 1, Pro = 6
 set "WIN_EDITION=1"
+
+set "DISK_LABEL=BOOTCAMP"
+set "USB_LABEL=Win11"
 
 echo Finding the drives of %DISK_LABEL% and %USB_LABEL%...
 for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
