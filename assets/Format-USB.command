@@ -10,7 +10,7 @@ while true; do
     fi
     
     echo "Finding USB drives... Press any key to stop."
-    if [[ read -t 1 -n 1 -s ]]; then break; fi
+    if [[ read -t 2 -n 1 -s ]]; then break; fi
 done
 
 while true; do
