@@ -22,7 +22,7 @@ while true; do
         read -rp "Info about $DISK is displayed above. Format $DISK? [y/N] " ANSWER
         
         case "$ANSWER" in
-            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi; break;;
+            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi; echo "Done."; break;;
             *) echo "Aborted. Retrying...";;
         esac
     else echo "$DISK is not a disk. Retrying..."; fi
