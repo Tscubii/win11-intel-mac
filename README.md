@@ -42,8 +42,8 @@ First we identify, format, and copy files to the USB.
 4. Close Terminal
 5. Mount the ISO and copy everything from it to the Win11 volume
 6. Copy the `WindowsSupport` folder to the Win11 volume
-7. Enter the `assets` folder and copy `MacBook-Helper.bat` and `AutoUnattend.xml` to the Win11 volume (replace if asked)
-8. In the UEFI_NTFS volume, create the folder structure and copy the `.efi` files as shown below:
+7. Enter the `assets` folder and copy `WinPE-Helper.bat` and `AutoUnattend.xml` to the Win11 volume
+8. In the UEFI_NTFS volume, create the folder structure and copy the two `.efi` files as shown below:
 
 ```
 EFI/
