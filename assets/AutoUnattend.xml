@@ -5,22 +5,18 @@
             <RunSynchronous>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>1</Order>
-                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do ( if exist %i:\$WinPEDriver$ ( ren %i:\$WinPEDriver$ WinPEDriver ) )</Path>
+                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do ( if exist %i:\MacBook-Helper.bat ( MacBook-Helper.bat ) )</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>2</Order>
-                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do ( if exist %i:\WinPE-Helper.bat ( move %i:\WinPE-Helper.bat X:\WinPE-Helper.bat && X:\WinPE-Helper.bat ) )</Path>
-                </RunSynchronousCommand>
-                <RunSynchronousCommand wcm:action="add">
-                    <Order>3</Order>
                     <Path>reg add HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1 /f</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>4</Order>
+                    <Order>3</Order>
                     <Path>reg add HKLM\SYSTEM\Setup\LabConfig /v BypassSecureBootCheck /t REG_DWORD /d 1 /f</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
-                    <Order>5</Order>
+                    <Order>4</Order>
                     <Path>reg add HKLM\SYSTEM\Setup\LabConfig /v BypassRAMCheck /t REG_DWORD /d 1 /f</Path>
                 </RunSynchronousCommand>
             </RunSynchronous>
@@ -45,11 +41,7 @@
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <Order>1</Order>
-                    <CommandLine>ren D:\WinPEDriver $WinPEDriver$</CommandLine>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>2</Order>
-                    <CommandLine>D:\BootCamp\Setup.exe</CommandLine>
+                    <CommandLine>D:\WindowsSupport\BootCamp\Setup.exe</CommandLine>
                 </SynchronousCommand>
             </FirstLogonCommands>
         </component>
