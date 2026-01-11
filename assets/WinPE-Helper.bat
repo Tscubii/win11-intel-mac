@@ -16,5 +16,6 @@ if defined USB_LETTER (
     if exist %USB_LETTER%:\WindowsSupport\$WinPEDriver$ (
         echo Adding drivers to Windows Setup...
         for /r %USB_LETTER%:\WindowsSupport\$WinPEDriver$ %%i in (*.inf) do ( drvload %%i )
+        echo Done.
     ) else ( echo Couldn't find %USB_LETTER%:\WindowsSupport\$WinPEDriver$. )
 ) else ( echo Couldn't find the drive of %USB_LABEL%. )
