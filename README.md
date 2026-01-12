@@ -24,7 +24,7 @@ Put the files in an easily accessible folder (e.g., one on the desktop called `T
 ### What You Need - T2
 
 * [Secure Boot set to "No Security"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
-    * Full Security prompts for an integrity check, which will always fail
+    * Full Security prompts for an integrity check, which always fails
     * Medium Security prompts for a macOS reinstall, which is unnecessary
 * [Allowed Boot Media set to "Allow booting from external or removable media"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
 
@@ -61,4 +61,3 @@ Then we boot from the USB and install Windows 11.
     * If there's two, select the rightmost one
 2. Proceed with the installation
     * `WinPE-Helper.bat` loads drivers so that the Mac hardware is recognized within Windows Setup
-    * Select the BOOTCAMP partition and click "Format Partition" -> "Refresh" -> "Install"
