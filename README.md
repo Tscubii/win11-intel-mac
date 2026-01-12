@@ -11,7 +11,7 @@ This was tested on a MacBook Pro (16-inch, 2019) running macOS Sequoia 15.7.3.
     * Name: BOOTCAMP
     * Format: ExFAT
     * Size: 64 GB+
-        * Set this first to prevent a lockout
+        * Set this before setting Format to "ExFAT" to prevent a lockout
 * [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) (the x64 `.iso` file)
 * [Windows support software](https://support.apple.com/en-us/102465#:~:text=Download%20the%20Windows,Boot%20Camp%20Assistant.) (how-to instructions)
     * Save it to the `Downloads` folder
