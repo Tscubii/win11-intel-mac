@@ -1,4 +1,4 @@
-# How to Install Windows 11 on an Intel Mac (WIP)
+# How to Install Windows 11 on an Intel Mac
 
 A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 or WIM splitting shenanigans.
 
@@ -60,3 +60,5 @@ Then we boot from the USB and install Windows 11.
 1. Restart the Mac, hold Option, and select EFI Boot
     * If there's two, select the rightmost one
 2. Proceed with the installation
+    * `WinPE-Helper.bat` loads drivers so that the Mac hardware is recognized within Windows Setup
+    * Select the BOOTCAMP partition and click "Format Partition" -> "Refresh" -> "Install"
