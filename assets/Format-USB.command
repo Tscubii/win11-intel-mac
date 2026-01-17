@@ -4,7 +4,7 @@ LAST_OUTPUT=""
 
 while true; do
     CURRENT_OUTPUT=$(diskutil list external physical)
-    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]];
+    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]]; then
         echo "$CURRENT_OUTPUT"
         LAST_OUTPUT="$CURRENT_OUTPUT"
     fi
@@ -23,7 +23,7 @@ while true; do
         read -rp "Info about $DISK is displayed above. Format $DISK? [y/N] " ANSWER
         
         case "$ANSWER" in
-            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi; echo "Done."; break;;
+            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi; break;;
             *) echo "Aborted. Retrying...";;
         esac
     else echo "$DISK is not a disk. Retrying..."; fi
