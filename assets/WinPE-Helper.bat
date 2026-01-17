@@ -15,8 +15,8 @@ for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
 
 if defined USB_LETTER (
     set "DRV_FOLDER=%USB_LETTER%:\%DRV_PATH%"
-    if exist DRV_FOLDER (
+    if exist !DRV_FOLDER! (
         echo Adding drivers to Windows Setup...
-        for /r %DRV_FOLDER% %%i in (*.inf) do ( drvload %%i )
-    ) else ( echo Couldn't find %DRV_FOLDER%. )
+        for /r !DRV_FOLDER! %%i in (*.inf) do ( drvload %%i )
+    ) else ( echo Couldn't find !DRV_FOLDER!. )
 ) else ( echo Couldn't find %USB_LABEL%'s drive. )
