@@ -2,7 +2,7 @@
 
 A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 or WIM splitting shenanigans.
 
-This was tested on a MacBook Pro (16-inch, 2019) running macOS Sequoia 15.7.3.
+This was tested on a MacBook Pro (15-inch, 2019) running macOS Sequoia 15.7.3.
 
 ## What You Need
 
@@ -28,7 +28,7 @@ Put the files in an easily accessible folder (e.g., one on the desktop called `T
     * Medium Security prompts for a macOS reinstall, which is unnecessary
 * [Allowed Boot Media set to "Allow booting from external or removable media"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
 
-Revert these once you reach the Windows 11 desktop.
+Revert these once you fully update Windows 11.
 
 ## Instructions
 
