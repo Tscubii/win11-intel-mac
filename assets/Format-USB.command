@@ -4,13 +4,14 @@ LAST_OUTPUT=""
 
 while true; do
     CURRENT_OUTPUT=$(diskutil list external physical)
-    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]]; then clear;
+    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]];
         echo "$CURRENT_OUTPUT"
         LAST_OUTPUT="$CURRENT_OUTPUT"
     fi
     
     echo "Finding USB drives... Press any key to stop."
-    if [[ read -t 2 -n 1 -s ]]; then break; fi
+    if read -t 2 -n 1 -s; then break; fi
+    clear
 done
 
 while true; do
