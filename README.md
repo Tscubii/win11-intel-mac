@@ -7,7 +7,7 @@ This was tested on a (borrowed) MacBook Pro (15-inch, 2019) running macOS Sequoi
 ## What You Need
 
 * USB keyboard and mouse
-    * This will be required until I can find a way to load MacBook keyboard and trackpad drivers into Windows Setup and the install
+    * This is required until I find a way to load MacBook keyboard and trackpad drivers into Windows Setup and the installation
 * 16 GB+ USB
 * [Windows partition](https://support.apple.com/guide/disk-utility/partition-a-physical-disk-dskutl14027/mac#:~:text=Add%20a%20partition,finishes%2C%20click%20Done.) (how-to instructions)
     * Name: BOOTCAMP
