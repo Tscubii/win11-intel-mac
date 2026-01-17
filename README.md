@@ -1,11 +1,13 @@
-# How to Install Windows 11 on an Intel Mac
+# How to Install Windows 11 on an Intel Mac (WIP)
 
 A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 or WIM splitting shenanigans.
 
-This was tested on a MacBook Pro (15-inch, 2019) running macOS Sequoia 15.7.3.
+This was tested on a (borrowed) MacBook Pro (15-inch, 2019) running macOS Sequoia 15.7.3.
 
 ## What You Need
 
+* USB keyboard and mouse
+    * This will be required until I can find a way to load MacBook keyboard and trackpad drivers into Windows Setup and the install
 * 16 GB+ USB
 * [Windows partition](https://support.apple.com/guide/disk-utility/partition-a-physical-disk-dskutl14027/mac#:~:text=Add%20a%20partition,finishes%2C%20click%20Done.) (how-to instructions)
     * Name: BOOTCAMP
