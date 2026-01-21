@@ -7,7 +7,7 @@ This was tested on a (borrowed) MacBook Pro (15-inch, 2019) running macOS Sequoi
 ## What You Need
 
 * USB keyboard and mouse
-    * This is required until I find a way to load MacBook keyboard and trackpad drivers into Windows Setup and the installation
+    * This is required until I find a way to load the MacBook keyboard and trackpad drivers into Windows Setup and the installation
 * 16 GB+ USB
 * [Windows partition](https://support.apple.com/guide/disk-utility/partition-a-physical-disk-dskutl14027/mac#:~:text=Add%20a%20partition,finishes%2C%20click%20Done.) (how-to instructions)
     * Name: BOOTCAMP
@@ -21,16 +21,12 @@ This was tested on a (borrowed) MacBook Pro (15-inch, 2019) running macOS Sequoi
 * [bootx64.efi](https://github.com/pbatard/uefi-ntfs/releases/latest/download/bootx64.efi) (direct download)
 * [exfat_x64.efi](https://github.com/pbatard/EfiFs/releases/latest/download/exfat_x64.efi) (direct download)
 
-Put the files in an easily accessible folder (e.g., one on the desktop called `Temp`).
-
 ### What You Need - T2
 
 * [Secure Boot set to "No Security"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
     * Full Security prompts for an integrity check, which always fails
     * Medium Security prompts for a macOS reinstall, which is unnecessary
 * [Allowed Boot Media set to "Allow booting from external or removable media"](https://support.apple.com/en-us/102522#:~:text=Open%20Startup%20Security,enter%20its%20password.) (how-to instructions)
-
-Revert these once you fully update Windows 11.
 
 ## Instructions
 
@@ -45,7 +41,7 @@ First we identify, format, and copy files to the USB.
 5. Mount the ISO and copy everything from it to the Win11 volume
 6. Copy the `WindowsSupport` folder to the Win11 volume
 7. Enter the `assets` folder and copy `WinPE-Helper.bat` and `AutoUnattend.xml` to the Win11 volume
-8. In the UEFI_NTFS volume, create the folder structure and copy the two `.efi` files as shown below:
+8. In the UEFI_NTFS volume, create the folder structure and copy the `.efi` files as shown below:
 
 ```
 EFI/
@@ -60,6 +56,5 @@ EFI/
 Then we boot from the USB and install Windows 11.
 
 1. Restart the Mac, hold Option, and select EFI Boot
-    * If there's two, select the rightmost one
 2. Proceed with the installation
     * `WinPE-Helper.bat` loads drivers so that the Mac hardware is recognized within Windows Setup
