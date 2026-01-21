@@ -6,8 +6,7 @@ while true; do
     diskutil list external physical
     echo "Finding USB drives... Press any key to stop."
     
-    if read -t 2 -n 1 -s; then break; fi
-    clear
+    if read -t 2 -n 1 -s; then break; else clear; fi
 done
 
 while true; do
