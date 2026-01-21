@@ -1,17 +1,12 @@
 #!/bin/sh
 
-LAST_OUTPUT=""
+USB_LABEL="Win11"
 
 while true; do
-    CURRENT_OUTPUT=$(diskutil list external physical)
-    if [[ "$CURRENT_OUTPUT" != "$LAST_OUTPUT" ]]; then
-        echo "$CURRENT_OUTPUT"
-        LAST_OUTPUT="$CURRENT_OUTPUT"
-    fi
-    
+    diskutil list external physical
     echo "Finding USB drives... Press any key to stop."
+    
     if read -t 2 -n 1 -s; then break; fi
-    clear
 done
 
 while true; do
@@ -23,7 +18,7 @@ while true; do
         read -rp "Info about $DISK is displayed above. Format $DISK? [y/N] " ANSWER
         
         case "$ANSWER" in
-            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT Win11 R "MS-DOS FAT12" UEFI_NTFS 1Mi; break;;
+            [Yy]*) diskutil partitionDisk -noEFI "$DISK" 2 GPT ExFAT "$USB_LABEL" R "MS-DOS FAT12" UEFI_NTFS 1Mi; break;;
             *) echo "Aborted. Retrying...";;
         esac
     else echo "$DISK is not a disk. Retrying..."; fi
