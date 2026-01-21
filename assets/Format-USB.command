@@ -7,6 +7,7 @@ while true; do
     echo "Finding USB drives... Press any key to stop."
     
     if read -t 2 -n 1 -s; then break; fi
+    clear
 done
 
 while true; do
