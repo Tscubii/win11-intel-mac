@@ -14,12 +14,7 @@ for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
 
 if defined USB_LETTER (
     if exist %USB_LETTER%\WindowsSupport\$WinPEDriver$ (
-        echo Loading boot-critical drivers into Windows Setup...
+        echo Loading drivers into Windows Setup...
         for /r %USB_LETTER%\WindowsSupport\$WinPEDriver$ %%i in (*.inf) do ( drvload %%i )
-        
-        if exist %USB_LETTER%\WindowsSupport\BootCamp\Drivers\Apple (
-            echo Loading Apple-specific drivers into Windows Setup...
-            for /r %USB_LETTER%\WindowsSupport\BootCamp\Drivers\Apple %%i in (*.inf) do ( drvload %%i )
-        ) else ( echo Could not find %USB_LETTER%\WindowsSupport\BootCamp\Drivers\Apple. )
     ) else ( echo Could not find %USB_LETTER%\WindowsSupport\$WinPEDriver$. )
 ) else ( echo Could not find the drive of %USB_LABEL%. )
