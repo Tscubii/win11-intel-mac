@@ -56,3 +56,5 @@ Then we boot from the USB and install Windows 11.
 1. Restart the Mac, hold Option, and select EFI Boot
 2. Proceed with the installation
     * `WinPE-Helper.bat` loads drivers so that the Mac hardware is recognized within Windows Setup
+
+Run Apple Software Update and Windows Update until fully updated.
