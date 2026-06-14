@@ -5,7 +5,7 @@
             <RunSynchronous>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>1</Order>
-                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do @( if exist %i:\WinPE-Helper.bat ( move %i:\WinPE-Helper.bat X:\ && X:\WinPE-Helper.bat ) )</Path>
+                    <Path>cmd /c for %i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do @( %i:\WinPE-Helper.bat )</Path>
                 </RunSynchronousCommand>
                 <RunSynchronousCommand wcm:action="add">
                     <Order>2</Order>
