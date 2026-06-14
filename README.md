@@ -1,6 +1,6 @@
 # How to Install Windows 11 on an Intel Mac (WIP)
 
-A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 or WIM splitting shenanigans.
+A guide on how to clean install Windows 11 on an Intel-based Mac. No Windows 10 shenanigans.
 
 This was tested on a (borrowed) MacBook Pro (15-inch, 2019) running macOS Sequoia 15.7.3.
 
