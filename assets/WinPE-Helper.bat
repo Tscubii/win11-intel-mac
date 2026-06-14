@@ -22,31 +22,36 @@ for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
     )
 )
 
-if defined USB_LETTER (
-    if defined HDD_LETTER (
-        if not exist %HDD_LETTER%\Mount (
-            echo Creating mount folder...
-            md %HDD_LETTER%\Mount
-            
-            echo Formatting %HDD_LABEL% (%HDD_LETTER%) to NTFS...
-            format %HDD_LETTER% /fs:NTFS /v:BOOTCAMP /q /y
-            
-            echo Mounting boot.wim...
-            dism /Mount-Image /ImageFile:%USB_LETTER%\sources\boot.wim /Index:2 /MountDir:%HDD_LETTER%\Mount
-            
-            echo Adding drivers to boot.wim...
-            dism /Image:%HDD_LETTER%\Mount /Add-Driver /Driver:%USB_LETTER%\WindowsSupport\$WinPEDriver$ /Recurse
-            
-            echo Saving and unmounting boot.wim...
-            dism /Unmount-Image /MountDir:%HDD_LETTER%\Mount /Commit
-            
-            echo INFO: boot.wim prepared successfully. Boot from USB again to continue.
-            goto SHUTDOWN
-        ) else ( echo INFO: Found mount folder, assuming boot.wim already prepared. Self-deleting... & del %~f0 )
-    ) else ( echo ERROR: Could not find the drive of %HDD_LABEL%. Cannot continue. & goto SHUTDOWN )
-) else ( echo ERROR: Could not find the drive of %USB_LABEL%. Cannot continue. & goto SHUTDOWN )
+if not defined USB_LETTER ( echo ERROR: Could not find the drive of %USB_LABEL%. Cannot continue. & goto SHUTDOWN )
+if not defined HDD_LETTER ( echo ERROR: Could not find the drive of %HDD_LABEL%. Cannot continue. & goto SHUTDOWN )
+
+if not exist "%HDD_LETTER%\Mount" (
+    echo Formatting %HDD_LABEL% (%HDD_LETTER%) to NTFS...
+    format %HDD_LETTER% /fs:NTFS /v:BOOTCAMP /q /y
+    
+    echo Creating mount folder...
+    md "%HDD_LETTER%\Mount"
+    
+    echo Mounting boot.wim...
+    dism /Mount-Image /ImageFile:"%USB_LETTER%\sources\boot.wim" /Index:2 /MountDir:"%HDD_LETTER%\Mount"
+    
+    echo Adding drivers to boot.wim...
+    dism /Image:"%HDD_LETTER%\Mount" /Add-Driver /Driver:"%USB_LETTER%\WindowsSupport\$WinPEDriver$" /Recurse
+    
+    echo Saving and unmounting boot.wim...
+    dism /Unmount-Image /MountDir:"%HDD_LETTER%\Mount" /Commit
+    
+    echo INFO: boot.wim prepared successfully. Boot from USB again to continue.
+    goto SHUTDOWN
+) else (
+    echo INFO: Found mount folder, assuming boot.wim already prepared. Self-deleting...
+    (goto) 2>nul & del "%~f0"
+    goto EOF
+)
 
 :SHUTDOWN
 echo Shutting down in 10 seconds...
 timeout /t 10 >nul
 wpeutil shutdown
+
+:EOF
