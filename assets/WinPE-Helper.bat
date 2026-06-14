@@ -42,7 +42,7 @@ if defined USB_LETTER (
             
             echo INFO: boot.wim prepared successfully. Boot from USB again to continue.
             goto :SHUTDOWN
-        ) else ( echo INFO: Found mount folder, so assuming boot.wim already prepared. Skipping... )
+        ) else ( echo INFO: Found mount folder, assuming boot.wim already prepared. Skipping... )
     ) else ( echo ERROR: Could not find the drive of %HDD_LABEL%. Cannot continue. & goto :SHUTDOWN )
 ) else ( echo ERROR: Could not find the drive of %USB_LABEL%. Cannot continue. & goto :SHUTDOWN )
 
