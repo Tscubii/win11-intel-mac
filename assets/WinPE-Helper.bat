@@ -45,7 +45,7 @@ if not exist "%HDD_LETTER%\Mount" (
     goto SHUTDOWN
 ) else (
     echo INFO: Found mount folder, assuming boot.wim already prepared. Self-deleting...
-    (goto) 2>nul & del "%~f0"
+    goto 2>nul & del "%~f0"
     goto EOF
 )
 
