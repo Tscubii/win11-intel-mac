@@ -7,7 +7,7 @@ set "HDD_LABEL=BOOTCAMP"
 echo Finding the drive of %USB_LABEL%...
 for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
     vol %%i: 2>nul | find /i "%USB_LABEL%" >nul
-        if !ERRORLEVEL! equ 0 (
+    if !ERRORLEVEL! equ 0 (
         echo %USB_LABEL% is drive %%i:
         set "USB_LETTER=%%i:"
     )
@@ -27,7 +27,7 @@ if not defined HDD_LETTER ( echo ERROR: Could not find the drive of %HDD_LABEL%.
 
 if not exist "%HDD_LETTER%\Mount" (
     echo Formatting %HDD_LABEL% (%HDD_LETTER%) to NTFS...
-    format %HDD_LETTER% /fs:NTFS /v:BOOTCAMP /q /y
+    format %HDD_LETTER% /fs:NTFS /v:%HDD_LABEL% /q /y
     
     echo Creating mount folder...
     md "%HDD_LETTER%\Mount"
