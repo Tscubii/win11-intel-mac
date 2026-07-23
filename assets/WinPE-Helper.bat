@@ -29,19 +29,13 @@ if not exist "%HDD_LETTER%\Mount" (
     format %HDD_LETTER% /fs:ntfs /v:%HDD_LABEL% /q /y
     
     echo Creating mount folder...
-    if not exist "%HDD_LETTER%\Mount" ( md "%HDD_LETTER%\Mount" )
+    md "%HDD_LETTER%\Mount"
     
     echo Mounting boot.wim...
     dism /Mount-Image /ImageFile:"%USB_LETTER%\sources\boot.wim" /Index:2 /MountDir:"%HDD_LETTER%\Mount"
-    if !ERRORLEVEL! neq 0 ( echo ERROR: Could not mount boot.wim. Cannot continue. & goto SHUTDOWN )
     
     echo Adding drivers...
     dism /Image:"%HDD_LETTER%\Mount" /Add-Driver /Driver:"%USB_LETTER%\WindowsSupport\$WinPEDriver$" /Recurse
-    if !ERRORLEVEL! neq 0 (
-        echo ERROR: Could not add drivers. Cannot continue. Discarding...
-        dism /Unmount-Image /MountDir:"%HDD_LETTER%\Mount" /Discard
-        goto SHUTDOWN
-    )
     
     echo Saving and unmounting...
     dism /Unmount-Image /MountDir:"%HDD_LETTER%\Mount" /Commit
@@ -49,9 +43,9 @@ if not exist "%HDD_LETTER%\Mount" (
     echo INFO: boot.wim prepared successfully. Boot from USB again to continue.
     goto SHUTDOWN
 ) else (
-    echo INFO: Found mount folder. Discarding boot.wim remnants and self-deleting...
-    dism /Unmount-Image /MountDir:"%HDD_LETTER%\Mount" /Discard >nul 2>&1
-    goto 2>nul & del "%~f0"
+    echo INFO: Found mount folder. Assuming boot.wim was prepared. Cleaning up and self-deleting...
+    rd "%HDD_LETTER%\Mount"
+    (goto) 2>nul & del "%~f0"
     goto EOF
 )
 
