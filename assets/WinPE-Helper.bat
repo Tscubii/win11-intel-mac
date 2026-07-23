@@ -24,7 +24,7 @@ for %%i in (C D E F G H I J K L M N O P Q R S T U V W Y Z) do (
 )
 if not defined HDD_LETTER ( echo ERROR: Could not find %HDD_LABEL%. Cannot continue. & goto SHUTDOWN )
 
-if not exist "%HDD_LETTER%\Mount\Windows" (
+if not exist "%HDD_LETTER%\Mount" (
     echo Formatting %HDD_LABEL% (%HDD_LETTER%) to NTFS...
     format %HDD_LETTER% /fs:ntfs /v:%HDD_LABEL% /q /y
     
