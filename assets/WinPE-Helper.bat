@@ -49,7 +49,7 @@ if not exist "%HDD_LETTER%\Mount" (
     echo INFO: boot.wim prepared successfully. Boot from USB again to continue.
     goto SHUTDOWN
 ) else (
-    echo INFO: Found boot.wim remnants. Discarding and self-deleting...
+    echo INFO: Found mount folder. Discarding boot.wim remnants and self-deleting...
     dism /Unmount-Image /MountDir:"%HDD_LETTER%\Mount" /Discard >nul 2>&1
     goto 2>nul & del "%~f0"
     goto EOF
